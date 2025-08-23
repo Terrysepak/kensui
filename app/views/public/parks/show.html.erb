@@ -20,7 +20,28 @@
         <div id="map" data-latitude=<%= @park.latitude %> data-longitude=<%= @park.longitude %>></div>
       </td>
     </tr>
+    <tr>
+      <th>レビュー</th>
+      <td>
+        <div id="review"></div>
+      </td>
+    </tr>
   </tbody>
 </table>
 
+<% if user_signed_in? && current_user == @park.user %>
+  <%= link_to "編集する", edit_park_path(@park), class: "btn btn-warning" , data: {turbolinks: "false"} %>
+<% end %>
+
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-raty-js@2.8.0/lib/jquery.raty.min.js"></script>
+<script>
+  $('#review').raty({
+    starOff: '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHarf : '<%= asset_path('star-half.png') %>',
+    score: <%= @park.review %>,
+    readOnly: true
+  });
+</script>

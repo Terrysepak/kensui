@@ -11,6 +11,9 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to "投稿一覧", parks_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "新規投稿", new_park_path, class: "nav-link", data: {turbolinks: "false"}  %>
           </li>
           <li class="nav-item">

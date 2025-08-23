@@ -9,12 +9,32 @@
     <%= f.text_area :body, rows: 5, class: "form-control" %>
   </div>
   <div class="mb-2">
-    <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "郵便番号" %>
+    <%= f.label :zipcode, "郵便番号" %>
+    <%= text_field_tag :zipcode, nil, class: "form-control" %>
+  </div>
+    <div class="mb-2">
     <%= f.label :address %>
     <%= f.text_field :address, class: "form-control" %>
   </div>
+  <div class="mb-2">
+    <%= f.label :review %>
+    <div id="review"></div>
+  </div>
+  
   <div class="text-center my-4">
     <%= f.submit submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+
 <%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-raty-js@2.8.0/lib/jquery.raty.min.js"></script>
+<script>
+  $('#review').raty({
+    starOff: '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHarf : '<%= asset_path('star-half.png') %>',
+    scoreName: 'park[review]',
+    score: <%= park.review %>
+  });
+</script>

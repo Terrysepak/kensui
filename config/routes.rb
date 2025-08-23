@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root "home#top"
     resources :parks
+    resources :users, only: [:show, :edit, :update, :destroy]
+  end
+
+  namespace :admin do
+    root "users#index"
+    resources :users, only: [:index, :destroy]
   end
 end

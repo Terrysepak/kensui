@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-3">
+    <h3><%= @user.name %>'s page</h3>
+    <% if user_signed_in? && current_user == @user %>
+      <%= link_to "編集する", edit_user_path(@user), class: "btn btn-warning" , data: {turbolinks: "false"}  %>
+    <% end %>
+  </div>
+  <div class="col-9">
+    <h1><%= @user.name %>'s post</h1>
+    <%= render "public/parks/parks", parks: @parks %>
+  </div>
+</div>
+

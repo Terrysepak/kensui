@@ -1,0 +1,24 @@
+<% if parks.any? %>
+  <table class="table table-bordered">
+    <thead>
+      <th>名前</th>
+      <th>住所</th>
+      <th>レビュー</th>
+      <th>投稿日</th>
+      <th>投稿者</th>
+    </thead>
+    <tbody>
+      <% parks.each do |park| %>
+        <tr>
+          <td><%= link_to park.name, park %></td>
+          <td><%= park.address %></td>
+          <td><%= park.review %></td>
+          <td><%= l park.created_at, format: :long %></td>
+          <td><%= link_to park.user.name, park.user %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>no-record</p>
+<% end %>

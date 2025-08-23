@@ -1,0 +1,12 @@
+@use '~bootstrap/scss/bootstrap';
+
+.jumbotron {
+  height: 60vh;
+  background: url('../images/asia.jpg') center no-repeat;
+  background-size: cover;
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 88px - 179px);
+}

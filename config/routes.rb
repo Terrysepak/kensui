@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ 
+  devise_for :users, path: "/", controllers: {
+    sessions: 'public/users/sessions',
+    registrations: 'public/users/registrations'
+  }
+  devise_for :admins, path: "/admin", controllers: {
+    sessions: 'admin/admins/sessions'
+  }
+
+  scope module: :public do
+    root "home#top"
+    resources :parks
+  end
 end

@@ -1,0 +1,26 @@
+<h1>Park Information</h1>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th width="20%">公園名</th>
+      <td width="80%"><%= @park.name %></td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td><%= simple_format(@park.body) %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @park.address %></td>
+    </tr>
+    <tr>
+      <th>地図</th>
+      <td>
+        <div id="map" data-latitude=<%= @park.latitude %> data-longitude=<%= @park.longitude %>></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>

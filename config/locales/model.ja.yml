@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      park:
+        name: 公園名
+        body: 内容
+        address: 住所

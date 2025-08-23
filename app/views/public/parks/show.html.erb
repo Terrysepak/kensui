@@ -26,12 +26,24 @@
         <div id="review"></div>
       </td>
     </tr>
+    <tr>
+      <th>設備</th>
+      <td>
+        <% @park.equipments.each do |equipment| %>
+          <span class="badge badge-secondary mx-3"><%= equipment.name %></span>
+        <% end %>
+      </td>
+    </tr>
   </tbody>
 </table>
 
 <% if user_signed_in? && current_user == @park.user %>
   <%= link_to "編集する", edit_park_path(@park), class: "btn btn-warning" , data: {turbolinks: "false"} %>
 <% end %>
+
+<%= render "public/comments/comments", comments: @comments %>
+
+<%= render "public/comments/form", comment: @comment, park: @park %>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
 

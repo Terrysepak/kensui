@@ -15,3 +15,12 @@ Admin.create!(email: "suguruvvv@gmail.com", password: "Turtle06")
     password: "password"
   )
 end
+
+equipment_names = %w(
+  懸垂器
+  腹筋台
+  アスレチックベンチ
+  座位体前屈器
+)
+
+equipment_names.each { |name| Equipment.create!(name: name) }

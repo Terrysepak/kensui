@@ -20,6 +20,12 @@
     <%= f.label :review %>
     <div id="review"></div>
   </div>
+  <div class="mb-2">
+    <%= f.label :equipment_ids, "設備" %><br>
+    <%= f.collection_check_boxes :equipment_ids, Equipment.all, :id, :name do |b| %>
+      <%= b.label { b.check_box + b.text } %>　
+    <% end %>
+  </div>
   
   <div class="text-center my-4">
     <%= f.submit submit, class: "btn btn-primary" %>

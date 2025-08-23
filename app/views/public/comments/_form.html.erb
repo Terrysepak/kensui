@@ -1,0 +1,11 @@
+<%= form_with model: [park, comment] do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
+  <div class="mb-2">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <div class="text-center my-4">
+    <%= f.submit "post", class: "btn btn-primary" %>
+  </div>
+<% end %>

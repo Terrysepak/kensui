@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root "home#top"
-    resources :parks
+    resources :parks do
+      resources :comments, only: :create
+    end
+    resources :comments, only: :destroy
     resources :users, only: [:show, :edit, :update, :destroy]
     post 'guest_login', to: 'users#guest_login'
   end

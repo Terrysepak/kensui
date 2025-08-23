@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :parks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.guest
     user = self.find_or_initialize_by(email: "guest@test.com")

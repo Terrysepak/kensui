@@ -7,4 +7,7 @@ class Park < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
+  has_many :park_equipments, dependent: :destroy
+  has_many :equipments, through: :park_equipments
+  has_many :comments, dependent: :destroy
 end

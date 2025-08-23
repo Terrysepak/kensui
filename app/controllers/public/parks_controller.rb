@@ -8,6 +8,8 @@ class Public::ParksController < ApplicationController
 
   def show
     @park = Park.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def new
@@ -47,7 +49,7 @@ class Public::ParksController < ApplicationController
   private
 
   def park_params
-    params.require(:park).permit(:name, :body, :address, :review)
+    params.require(:park).permit(:name, :body, :address, :review, equipment_ids: [])
   end
 
   def correct_user

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root "home#top"
     resources :parks
     resources :users, only: [:show, :edit, :update, :destroy]
+    post 'guest_login', to: 'users#guest_login'
   end
 
   namespace :admin do

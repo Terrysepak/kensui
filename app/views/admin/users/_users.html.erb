@@ -1,0 +1,22 @@
+<% if users.any? %>
+  <table class="table table-bordered">
+    <thead>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to "destroy", admin_user_path(user), method: :delete, class: "btn btn-danger", data: { confirm: "本当に削除しますか？" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>no-record</p>
+<% end %>
